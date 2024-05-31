@@ -78,7 +78,7 @@ function toggleTyping(status = False) {
 function sendMessageUtil(message, session_id, name) {
   toggleTyping(true);
   var settings = {
-    url: "http://127.0.0.1:8000/generate-content/",
+    url: "http://209.38.202.10:8000/generate-content/",
     method: "POST",
     timeout: 0,
     headers: {

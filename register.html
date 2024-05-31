@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="images/logo.png" />
+    <title>Register</title>
+    <link rel="stylesheet" href="assets/css/bundle1c4a.css?v131" />
+    <link rel="stylesheet" href="assets/css/app1c4a.css?v131" />
+
+    <script src="assets/js/jquery.js"></script>
+  </head>
+
+  <body class="tyn-body">
+    <div class="tyn-root">
+      <div class="tyn-content tyn-auth tyn-auth-centered">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-xl-6 col-lg-8">
+              <div class="mb-3 text-center">
+                <a class="" href="index.html">
+                  <img src="images/logo.png" height="100px" />
+                </a>
+              </div>
+              <div class="card border-0">
+                <form id="signupForm">
+                  <div class="p-4">
+                    <h3>Create Account</h3>
+                    <br />
+                    <div class="row g-3 gx-4">
+                      <div class="col-sm-6">
+                        <div class="form-group">
+                          <label class="form-label" for="username"
+                            >Your Name</label
+                          >
+                          <div class="form-control-wrap">
+                            <input
+                              type="text"
+                              name="username"
+                              class="form-control"
+                              id="username"
+                              placeholder="yourname"
+                              required
+                            />
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-6">
+                        <div class="form-group">
+                          <label class="form-label" for="email-address"
+                            >Email Address</label
+                          >
+                          <div class="form-control-wrap">
+                            <input
+                              type="text"
+                              class="form-control"
+                              id="email-address"
+                              name="email"
+                              placeholder="youremail@example.com"
+                              required
+                            />
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-6">
+                        <div class="form-group">
+                          <label class="form-label" for="password"
+                            >Password</label
+                          >
+                          <div class="form-control-wrap">
+                            <input
+                              type="password"
+                              class="form-control"
+                              id="password"
+                              name="password"
+                              placeholder="password"
+                              required
+                            />
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-6">
+                        <div class="form-group">
+                          <label class="form-label" for="repeat-password"
+                            >Password Repeat</label
+                          >
+                          <div class="form-control-wrap">
+                            <input
+                              type="password"
+                              class="form-control"
+                              id="repeat-password"
+                              name="confirm_password"
+                              placeholder="password again"
+                              required
+                            />
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="col-12">
+                        <button
+                          type="submit"
+                          class="btn btn-primary w-100"
+                          href="welcome.html"
+                        >
+                          Account Register
+                        </button>
+                      </div>
+                    </div>
+                    <br />
+                    <div
+                      class="alert alert-warning"
+                      role="alert"
+                      id="passwordError"
+                      style="display: none"
+                    >
+                      Passwords don't match
+                    </div>
+
+                    <div
+                      class="alert alert-danger"
+                      role="alert"
+                      id="emailError"
+                      style="display: none"
+                    >
+                      Email has been used before
+                    </div>
+                    <!-- .row -->
+                  </div>
+                </form>
+              </div>
+              <!-- .card -->
+              <div class="text-center mt-4">
+                <p class="small">
+                  Already have an account? <a href="login.html">Login</a>
+                </p>
+              </div>
+            </div>
+            <!-- .col -->
+          </div>
+          <!-- .row -->
+        </div>
+        <!-- .container -->
+      </div>
+    </div>
+    <script>
+      $("#signupForm").submit(function (e) {
+        e.preventDefault();
+        var data = $(this).serializeArray();
+
+        let name = data[0].value;
+        let email = data[1].value;
+        let password = data[2].value;
+
+        //check if passwords match.
+        if (data[2].value != data[3].value) {
+          $("#passwordError").css("display", "block");
+        } else {
+          $("#passwordError").css("display", "none");
+
+          var settings = {
+            url: "http://127.0.0.1:8000/users",
+            method: "POST",
+            timeout: 0,
+            headers: {
+              "Content-Type": "application/json",
+            },
+            data: JSON.stringify({
+              email: email,
+              name: name,
+              password: password,
+            }),
+          };
+
+          $.ajax(settings)
+            .done(function (response) {
+              $("#emailError").css("display", "none");
+              console.log(response);
+              let responseData = response;
+
+              localStorage.setItem("id", responseData.id);
+              localStorage.setItem("name", responseData.name);
+              localStorage.setItem("email", responseData.email);
+              window.location.assign("chat.html");
+            })
+            .fail(function (response) {
+              if (response.status == 400) {
+                $("#emailError").css("display", "block");
+              }
+            });
+        }
+      });
+    </script>
+    <script src="assets/js/bundle1c4a.js?v131"></script>
+    <script src="assets/js/app1c4a.js?v131"></script>
+  </body>
+</html>

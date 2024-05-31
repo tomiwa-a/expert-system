@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="">
+  <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="images/logo.png" />
+    <title>Diagnosis | Health Expat System</title>
+    <link rel="stylesheet" href="assets/css/bundle1c4a.css?v131" />
+    <link rel="stylesheet" href="assets/css/app1c4a.css?v131" />
+
+    <script src="assets/js/jquery.js"></script>
+    <script>
+      let item = localStorage.getItem("id");
+
+    // Check if the item is null or undefined
+    if (!item) {
+        // Redirect the user to the login page
+        window.location.assign("login.html");
+    }
+
+    $(document).ready(function(){
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        const diagnosis = urlParams.get('sickness')
+        if(diagnosis == "malaria"){
+            $("#typhoid_card").css("display", "none");
+            $("#malaria_card").css("display", "block");
+        }else if(diagnosis == "typhoid"){
+            $("#malaria_card").css("display", "none");
+            $("#typhoid_card").css("display", "block");
+        }
+
+    });
+
+
+    </script>
+  </head>
+
+  <body class="tyn-body">
+    <script>
+        $(document).ready(function(){
+            let name = localStorage.getItem("name");
+            $('.profile-name').text(name);
+
+        })
+    </script>
+    <div class="tyn-root">
+      <nav class="tyn-appbar">
+        <div class="tyn-appbar-wrap">
+          <div class="tyn-appbar-logo">
+            <a class="tyn-logo" href="index.html">
+              <img src="images/logo.png" />
+              </svg>
+            </a>
+          </div>
+          <div class="tyn-appbar-content">
+            <ul class="tyn-appbar-nav tyn-appbar-nav-start">
+              Diagnosis
+            </ul>
+            <ul class="tyn-appbar-nav tyn-appbar-nav-end">
+              <li class="tyn-appbar-item">
+                            <a class="d-inline-flex dropdown-toggle" data-bs-auto-close="outside" data-bs-toggle="dropdown" href="#" data-bs-offset="0,10">
+                                <div class="tyn-media tyn-size-lg tyn-circle">
+                                    <img src="images/default_avatar.jpg" alt="">
+                                </div>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-end">
+                                <div class="dropdown-gap">
+                                    <div class="tyn-media-group">
+                                        <div class="tyn-media tyn-size-lg">
+                                            <img src="images/default_avatar.jpg" alt="">
+                                        </div>
+                                        <div class="tyn-media-col">
+                                            <div class="tyn-media-row">
+                                                <h6 class="name profile-name" id="profile-name"></h6>
+                                                <div class="indicator varified">
+                                                    <!-- check-circle-fill -->
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-circle-fill" viewBox="0 0 16 16">
+                                                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div><!-- .dropdown-gap -->
+                                
+                                <ul class="tyn-list-links">
+                                    <!-- <li>
+                                        <a href="profile.html#profile-index">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+                                                <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z" />
+                                            </svg>
+                                            <span>Profile</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="profile.html#profile-settings">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-gear" viewBox="0 0 16 16">
+                                                <path d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492M5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0" />
+                                                <path d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115z" />
+                                            </svg>
+                                            <span>Settings</span>
+                                        </a>
+                                    </li> -->
+                                    <!-- <li>
+                                        <a href="profile.html#profile-change-password">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-unlock" viewBox="0 0 16 16">
+                                                <path d="M11 1a2 2 0 0 0-2 2v4a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h5V3a3 3 0 0 1 6 0v4a.5.5 0 0 1-1 0V3a2 2 0 0 0-2-2M3 8a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1z" />
+                                            </svg>
+                                            <span>Change Password</span>
+                                        </a>
+                                    </li> -->
+                                    <!-- <li class="dropdown-divider"></li>r -->
+                                    <li>
+                                        <a href="logout.html">
+                                            <!-- power -->
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-power" viewBox="0 0 16 16">
+                                                <path d="M7.5 1v7h1V1z" />
+                                                <path d="M3 8.812a5 5 0 0 1 2.578-4.375l-.485-.874A6 6 0 1 0 11 3.616l-.501.865A5 5 0 1 1 3 8.812" />
+                                            </svg>
+                                            <span>Log Out</span>
+                                        </a>
+                                    </li>
+                                </ul><!-- .tyn-list-links -->
+                            </div><!-- .dropdown-menu -->
+                        </li><!-- .tyn-appbar-item -->
+            </ul>
+          </div>
+          <!-- tyn-logo -->
+        </div>
+        <!-- .tyn-appbar-wrap -->
+      </nav>
+
+      <div class="tyn-content tyn-content-page">
+            <div class="tyn-main">
+                <div class="tyn-section tyn-section-lg pb-0">
+                    <div class="container">
+                        <div class="tyn-section-head tyn-text-block text-center">
+                            <h2 class="h1">You have been diagnosed!</h2>
+                            <p>you should still consider going to a doctor for more diganosis</p>
+                        </div>
+                        <div class="tyn-section-content">
+                            <div class="row g-4 justify-content-center">
+                                <div class="col-xl-6 col-lg-12 col-sm-12" id="malaria_card" style="display: none;">
+                                    <div class="card h-100 border-0">
+                                        <div class="card-body p-4">
+                                            <!-- <div class="text-muted text-opacity-50 fs-7 mt-n2 fw-medium profile-name">Amole  Oluwatomiwa Joseph</div> -->
+                                            <div class="h1 text-dark">Malaria</div>
+                                            <p style="font-size: 14px;">Malaria is a serious and potentially life-threatening disease caused by parasites of the genus Plasmodium, transmitted to humans through the bites of infected Anopheles mosquitoes.</p>
+                                            <!-- <br> -->
+                                            <h5 class="pb-2 pt-1">Symptoms</h5>
+                                            <ul class="list-check fs-6 d-flex flex-column gap gap-2">
+                                                <li class="d-flex gap gap-2">
+                                                    <span class="text-success">
+                                                        <!-- check -->
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check" viewBox="0 0 16 16">
+                                                            <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425z" />
+                                                        </svg>
+                                                    </span>
+                                                    <span>High fever</span>
+                                                </li>
+                                                <li class="d-flex gap gap-2">
+                                                    <span class="text-success">
+                                                        <!-- check -->
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check" viewBox="0 0 16 16">
+                                                            <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425z" />
+                                                        </svg>
+                                                    </span>
+                                                    <span>Chills and sweating</span>
+                                                </li>
+                                                <li class="d-flex gap gap-2">
+                                                    <span class="text-success">
+                                                        <!-- check -->
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check" viewBox="0 0 16 16">
+                                                            <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425z" />
+                                                        </svg>
+                                                    </span>
+                                                    <span>Headache</span>
+                                                </li><li class="d-flex gap gap-2">
+                                                    <span class="text-success">
+                                                        <!-- check -->
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check" viewBox="0 0 16 16">
+                                                            <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425z" />
+                                                        </svg>
+                                                    </span>
+                                                    <span>Nausea and vomiting</span>
+                                                </li><li class="d-flex gap gap-2">
+                                                    <span class="text-success">
+                                                        <!-- check -->
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check" viewBox="0 0 16 16">
+                                                            <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425z" />
+                                                        </svg>
+                                                    </span>
+                                                    <span>Muscle pain and fatigue</span>
+                                                </li><li class="d-flex gap gap-2">
+                                                    <span class="text-success">
+                                                        <!-- check -->
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check" viewBox="0 0 16 16">
+                                                            <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425z" />
+                                                        </svg>
+                                                    </span>
+                                                    <span>Abdominal pain</span>
+                                                </li><li class="d-flex gap gap-2">
+                                                    <span class="text-success">
+                                                        <!-- check -->
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check" viewBox="0 0 16 16">
+                                                            <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425z" />
+                                                        </svg>
+                                                    </span>
+                                                    <span>Diarrhea</span>
+                                                </li>
+                                            </ul>
+                                            <br >
+                                            <h5 class="pb-2 pt-1">Preventive Measures to Avoid Spreading Malaria</h5>
+                                            <ul class="list-check fs-6 d-flex flex-column gap gap-2">
+                                                <li class="d-flex gap gap-2"> <span>1) <b>Avoid Mosquito Bites:</b> Use insect repellent, sleep under insecticide-treated bed nets, and wear long-sleeved clothing, especially during dusk and dawn when mosquitoes are most active.</span>
+</li>
+<li class="d-flex gap gap-2"> <span>2) <b>Environmental Control:</b> Reduce mosquito breeding sites around your home by eliminating standing water.
+</span>
+</li>
+                                            </ul>
+
+                                            <br >
+                                            <h5 class="pb-2 pt-1">Treatment Steps</h5>
+                                            <ul class="list-check fs-6 d-flex flex-column gap gap-2">
+                                                <li class="d-flex gap gap-2">
+                                                    <span class="text-success">
+                                                        <!-- check -->
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check" viewBox="0 0 16 16">
+                                                            <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425z" />
+                                                        </svg>
+                                                    </span>
+                                                    <span>Antimalarial Medication: You will be prescribed antimalarial drugs based on the specific type of Plasmodium causing your infection, the severity of your symptoms, and your medical history. Common medications include artemisinin-based combination therapies (ACTs), chloroquine, mefloquine, and others.</span>
+                                                </li>
+                                                <li class="d-flex gap gap-2">
+                                                    <span class="text-success">
+                                                        <!-- check -->
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check" viewBox="0 0 16 16">
+                                                            <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425z" />
+                                                        </svg>
+                                                    </span>
+                                                    <span>Hydration and Nutrition: Drink plenty of fluids to prevent dehydration, which can occur due to fever and vomiting. Also eat a balanced diet with easily digestible foods. Small, frequent meals can help maintain your strength.</span>
+                                                </li>
+                                                <li class="d-flex gap gap-2">
+                                                    <span class="text-success">
+                                                        <!-- check -->
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check" viewBox="0 0 16 16">
+                                                            <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425z" />
+                                                        </svg>
+                                                    </span>
+                                                    <span>Rest as much as possible to help your body fight the infection. Avoid strenuous activities.</span>
+                                                </li><li class="d-flex gap gap-2">
+                                                    <span class="text-success">
+                                                        <!-- check -->
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check" viewBox="0 0 16 16">
+                                                            <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425z" />
+                                                        </svg>
+                                                    </span>
+                                                    <span>Keep track of your symptoms and contact your healthcare provider if you experience worsening symptoms or new symptoms.</span>
+                                                </li>
+                                            </ul>
+                                           <div class="mt-4">
+                                                <a href="index.html" class="btn btn-info ">Restart Diagnosis</a>
+                                            </div>
+                                        </div>
+                                    </div><!-- .card -->
+                                </div><!-- .col -->
+
+                                <div class="col-xl-6 col-lg-12 col-sm-12" id="typhoid_card" style="display: none;">
+                                    <div class="card h-100 border-0">
+                                        <div class="card-body p-4">
+                                            <!-- <div class="text-muted text-opacity-50 fs-7 mt-n2 fw-medium profile-name">Amole  Oluwatomiwa Joseph</div> -->
+                                            <div class="h1 text-dark">Typhoid</div>
+                                            <p style="font-size: 14px;">Typhoid fever is a serious bacterial infection caused by Salmonella typhi. It is typically spread through contaminated food or water.</p>
+                                            <!-- <br> -->
+                                            <h5 class="pb-2 pt-1">Symptoms</h5>
+                                            <ul class="list-check fs-6 d-flex flex-column gap gap-2">
+                                                <li class="d-flex gap gap-2">
+                                                    <span class="text-success">
+                                                        <!-- check -->
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check" viewBox="0 0 16 16">
+                                                            <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425z" />
+                                                        </svg>
+                                                    </span>
+                                                    <span>High fever</span>
+                                                </li>
+                                                <li class="d-flex gap gap-2">
+                                                    <span class="text-success">
+                                                        <!-- check -->
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check" viewBox="0 0 16 16">
+                                                            <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425z" />
+                                                        </svg>
+                                                    </span>
+                                                    <span>Weakness</span>
+                                                </li>
+                                                <li class="d-flex gap gap-2">
+                                                    <span class="text-success">
+                                                        <!-- check -->
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check" viewBox="0 0 16 16">
+                                                            <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425z" />
+                                                        </svg>
+                                                    </span>
+                                                    <span>Stomach pain</span>
+                                                </li><li class="d-flex gap gap-2">
+                                                    <span class="text-success">
+                                                        <!-- check -->
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check" viewBox="0 0 16 16">
+                                                            <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425z" />
+                                                        </svg>
+                                                    </span>
+                                                    <span>Headache</span>
+                                                </li><li class="d-flex gap gap-2">
+                                                    <span class="text-success">
+                                                        <!-- check -->
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check" viewBox="0 0 16 16">
+                                                            <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425z" />
+                                                        </svg>
+                                                    </span>
+                                                    <span>Diarrhea or constipation</span>
+                                                </li><li class="d-flex gap gap-2">
+                                                    <span class="text-success">
+                                                        <!-- check -->
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check" viewBox="0 0 16 16">
+                                                            <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425z" />
+                                                        </svg>
+                                                    </span>
+                                                    <span>Loss of appetite</span>
+                                                </li><li class="d-flex gap gap-2">
+                                                    <span class="text-success">
+                                                        <!-- check -->
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check" viewBox="0 0 16 16">
+                                                            <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425z" />
+                                                        </svg>
+                                                    </span>
+                                                    <span>Rash (in some cases)</span>
+                                                </li>
+                                            </ul>
+                                            <br >
+                                            <h5 class="pb-2 pt-1">Preventive Measures to Avoid Spreading Typhoid</h5>
+                                            <ul class="list-check fs-6 d-flex flex-column gap gap-2">
+                                                <li class="d-flex gap gap-2"> <span>1) <b>Hand Hygiene:</b> Wash your hands thoroughly with soap and water, especially after using the bathroom and before eating or preparing food.</span>
+</li>
+<li class="d-flex gap gap-2"> <span>2) <b>Avoid Preparing Food:</b> Do not prepare food for others until your healthcare provider confirms that you are no longer infectious.
+</span>
+</li>
+                                            </ul>
+
+                                            <br >
+                                            <h5 class="pb-2 pt-1">Treatment Steps</h5>
+                                            <ul class="list-check fs-6 d-flex flex-column gap gap-2">
+                                                <li class="d-flex gap gap-2">
+                                                    <span class="text-success">
+                                                        <!-- check -->
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check" viewBox="0 0 16 16">
+                                                            <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425z" />
+                                                        </svg>
+                                                    </span>
+                                                    <span>Antibiotic Therapy: You will be prescribed antibiotics to eliminate the bacteria. Common antibiotics include ciprofloxacin, azithromycin, or ceftriaxone. Complete the full course of antibiotics, even if you start feeling better before finishing the medication. This usually lasts for 7-14 days depending on the severity of the infection and the specific antibiotic prescribe</span>
+                                                </li>
+                                                <li class="d-flex gap gap-2">
+                                                    <span class="text-success">
+                                                        <!-- check -->
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check" viewBox="0 0 16 16">
+                                                            <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425z" />
+                                                        </svg>
+                                                    </span>
+                                                    <span>Hydration and Nutrition: Drink plenty of fluids to prevent dehydration, which can occur due to fever and vomiting. Also eat a balanced diet with easily digestible foods. Small, frequent meals can help maintain your strength.</span>
+                                                </li>
+                                                <li class="d-flex gap gap-2">
+                                                    <span class="text-success">
+                                                        <!-- check -->
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check" viewBox="0 0 16 16">
+                                                            <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425z" />
+                                                        </svg>
+                                                    </span>
+                                                    <span>Rest as much as possible to help your body fight the infection. Avoid strenuous activities.</span>
+                                                </li><li class="d-flex gap gap-2">
+                                                    <span class="text-success">
+                                                        <!-- check -->
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check" viewBox="0 0 16 16">
+                                                            <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425z" />
+                                                        </svg>
+                                                    </span>
+                                                    <span>Keep track of your symptoms and contact your healthcare provider if you experience worsening symptoms or new symptoms.</span>
+                                                </li>
+                                            </ul>
+                                            <div class="mt-4">
+                                                <a href="index.html" class="btn btn-info ">Restart Diagnosis</a>
+                                            </div>
+                                        </div>
+                                    </div><!-- .card -->
+                                </div><!-- .col -->
+                            </div><!-- .row -->
+                        </div><!-- .tyn-section-content -->
+                    </div><!-- .container -->
+                </div><!-- .tyn-section -->
+            </div><!-- .tyn-main -->
+        </div>
+        <br > <br>
+    </div>
+    <script src="assets/js/bundle1c4a.js?v131"></script>
+    <script src="assets/js/app1c4a.js?v131"></script>
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>

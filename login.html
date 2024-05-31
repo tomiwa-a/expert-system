@@ -74,6 +74,7 @@
                           type="submit"
                           class="btn btn-primary w-100"
                           href="welcome.html"
+                          id="login_button"
                         >
                           Account Login
                         </button>
@@ -113,6 +114,8 @@
 
         let email = data[0].value;
         let password = data[1].value;
+
+        $("#login_button").css("disabled", true);
         var settings = {
           url: "http://209.38.202.10:8000/login",
           method: "POST",
@@ -128,6 +131,7 @@
 
         $.ajax(settings)
           .done(function (response) {
+            $("#login_button").css("disabled", false);
             $("#emailError").css("display", "none");
             console.log(response);
             let responseData = response;

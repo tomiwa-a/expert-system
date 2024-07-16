@@ -78,7 +78,7 @@ function toggleTyping(status = False) {
 function sendMessageUtil(message, session_id, name) {
   toggleTyping(true);
   var settings = {
-    url: "https://158.69.36.61:8000/generate-content/",
+    url: "https://health.curaxpharmaceuticals.com:8000/generate-content/",
     method: "POST",
     timeout: 0,
     headers: {
